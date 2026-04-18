@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Lieferanten Bestellungen</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #0f172a;
+            color: white;
+            margin: 40px;
+        }
+
+        h1 {
+            margin-bottom: 25px;
+        }
+
+        h2 {
+            color: #22c55e;
+            margin-bottom: 10px;
+        }
+
+        .card {
+            background: #1e293b;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            padding: 8px 0;
+            border-bottom: 1px solid #334155;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 14px;
+            background: #22c55e;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+        }
+
+        .btn:hover {
+            background: #16a34a;
+        }
+
+        .topbar {
+            margin-bottom: 30px;
+        }
+
+        .empty {
+            background: #1e293b;
+            padding: 20px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="topbar">
+    <h1>📦 Lieferantenbestellungen</h1>
+</div>
+
+{% if grouped %}
+
+    {% for supplier, products in grouped.items() %}
+        <div class="card">
+
+            <h2>🚚 {{ supplier }}</h2>
+
+            <ul>
+                {% for product, qty in products.items() %}
+                    <li>
+                        <span>{{ product }}</span>
+                        <strong>{{ qty }}</strong>
+                    </li>
+                {% endfor %}
+            </ul>
+
+            <a class="btn" href="/supplier/{{ supplier }}/pdf">
+                📄 PDF exportieren
+            </a>
+
+        </div>
+    {% endfor %}
+
+{% else %}
+    <div class="empty">
+        Keine abgeschlossene Bestellung vorhanden.
+    </div>
+{% endif %}
+
+<a class="btn" href="/">← Zurück</a>
+
+</body>
+</html>
