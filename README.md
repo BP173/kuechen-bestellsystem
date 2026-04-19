@@ -38,6 +38,12 @@ Dieses System digitalisiert den Prozess durch:
 
 ---
 
+## Screenshot
+
+![App Screenshot](ScreenshotBestellsystem.png)
+
+---
+
 ## 📁 Projektstruktur
 
 ```text
