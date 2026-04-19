@@ -1,4 +1,4 @@
-# 🍽 Küchen Bestellsystem (Flask)
+# 🍽 Küchen Bestellsystem (Flask) v0.1
 
 Webbasiertes Bestellsystem zur strukturierten Erfassung, Bündelung und Auswertung von Küchenbestellungen über mehrere Abteilungen.
 
